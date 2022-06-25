@@ -1,5 +1,5 @@
 # KitaGo-06-Flutter
-Untuk code flutter ada pada branch MAIN
+Untuk code flutter ada pada branch MASTER
 
 Aplikasi Pariwisata dengan nama produk KitaGo by IF-43-12 Telkom University :
 
