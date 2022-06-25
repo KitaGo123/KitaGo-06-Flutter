@@ -1,0 +1,4 @@
+#Sat Jun 25 02:09:36 ICT 2022
+base.0=D\:\\Script\\flutterP\\kitago\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
