@@ -34,6 +34,8 @@ class addPaketScreenState extends State<addPaketScreen> {
   List<String> namaWisatas = [];
   late Pakets paket;
   dynamic user;
+  int idP = 0;
+  int idW = 0;
 
   String? _validate(value) {
     if (value == null || value.isEmpty) {
@@ -70,12 +72,14 @@ class addPaketScreenState extends State<addPaketScreen> {
           if (p.idPenginapan == int.parse(penginapans[i]['id'])) {
             namaPenginapanCtrl = penginapans[i]['namaPenginapan'];
             namPCtrl.text = penginapans[i]['namaPenginapan'];
+            idP = int.parse(penginapans[i]['id']);
           }
         }
         for (int i=0;i<wisatas.length;i++) {
           if (p.idWisata == int.parse(wisatas[i]['id'])) {
             namaWisataCtrl = wisatas[i]['namaWisata'];
             namWCtrl.text = wisatas[i]['namaWisata'];
+            idW = int.parse(wisatas[i]['id']);
           }
         }
       });
@@ -121,6 +125,23 @@ class addPaketScreenState extends State<addPaketScreen> {
         namaWisatas.add(wisatas[i]['namaWisata']);
       }
     });
+  }
+
+  String? upPenginapan() {
+    for (int i=0;i<namaPenginapans.length;i++) {
+      if (namPCtrl.text == namaPenginapans[i]) {
+        return namaPenginapans[i];
+      }
+    }
+    return null;
+  }
+  String? upWisata() {
+    for (int i=0;i<namaWisatas.length;i++) {
+      if (namWCtrl.text == namaWisatas[i]) {
+        return namaWisatas[i];
+      }
+    }
+    return null;
   }
 
   @override
@@ -208,10 +229,10 @@ class addPaketScreenState extends State<addPaketScreen> {
                                   );
                                 }).toList(),
                               value : widget.type == "update"
-                              ? namWCtrl.text
+                              ? upWisata()
                               : null,
                               hint: widget.type == "update"
-                              ? Text(namWCtrl.text)
+                              ? Text(upWisata()?? "")
                               : null
                             ),
                           ],
@@ -242,10 +263,10 @@ class addPaketScreenState extends State<addPaketScreen> {
                                   );
                                 }).toList(), 
                               value: widget.type == "update"
-                              ? namPCtrl.text
+                              ? upPenginapan()
                               : null,
                               hint: widget.type == "update"
-                              ? Text(namPCtrl.text)
+                              ? Text(upPenginapan()?? "")
                               : null
                             ),
                           ],
